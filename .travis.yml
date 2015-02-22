@@ -11,7 +11,7 @@ env:
     - DOCKER_HOST=tcp://$HOST_IP:2375
     - DOCKER_PORT_RANGE=2400:2500
     - SLIRP_PORTS=$(seq 2375 2500)
-    - secure: "m0MlW+KNcV3WRlr8Ky+jGcqZTIynszN0a1zmz1oOpKxfgk8jtiUSAAWAOrjy+/Dq2+VenOTpXzxOqXLmjtRxIDf8QEe+Bt7d+l9h8VY2pFD+2g6XQJM2EK7gxujMPTSoBAX8L3D9/x8uaPb7r5pKJTx941eDXg7Lqbcwi/YBeDc="
+    - secure: "kZXlqQt0zBDBgI5QCjWLltYvwWdu2MX3mAQ+XQfWLbZhgI+GJD3shxccEVZICMPGSxhQM7Eb7gv58dA1374tGXilHTfEc5mIGO0bqFy5Xhblf58wPze0WXh28GXYh+8ZQIR1aNpqFMTID1TfX9fh6JynFAzqOJzV0DFQyeFiCh8="
 
 branches:
   only:
