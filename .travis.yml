@@ -40,7 +40,7 @@ script:
   # - docker run local/r-base r -e 'sapply(installed.packages()[,"Package"], tools::testInstalledPackage)'
   - export build_version=`bump current | awk '{print $3}'`
   - docker version
-  - docker build -t "${ORG_NAME}/${APP_NAME}:${build_version}" blah
+  - docker build -t "${ORG_NAME}/${APP_NAME}:${build_version}" docker
   - docker images
   - docker push "${ORG_NAME}/${APP_NAME}:${build_version}"
   - bump patch --no-bundle --no-commit
