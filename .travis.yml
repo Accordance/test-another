@@ -38,26 +38,26 @@ before_script:
 
 script:
   # - docker run local/r-base r -e 'sapply(installed.packages()[,"Package"], tools::testInstalledPackage)'
-  - export build_version=`bump current | awk '{print $3}'`
+  # - export build_version=`bump current | awk '{print $3}'`
+  - export build_version=`thor version:current`
   - docker version
   - docker build -t "${ORG_NAME}/${APP_NAME}:${build_version}" docker
-  - docker images
+  # - docker images
   - docker push "${ORG_NAME}/${APP_NAME}:${build_version}"
-  - bump patch --no-bundle --no-commit
+  # - bump patch --no-bundle --no-commit
 
-# after_script:
 after_success:
   - git remote set-url --push origin https://github.com/${ORG_NAME}/${APP_NAME}.git
-  - git remote -v
+  # - git remote -v
   - git checkout master
   - git fetch -q
   - git config user.name $GIT_NAME
   - git config user.email $GIT_EMAIL
   - git config credential.helper "store --file=.git/credentials"
   - echo "https://${GH_TOKEN}:@github.com" > .git/credentials
-  - git add lib/version.rb
+  # - git add lib/version.rb
   # - git push --tags
-  - git commit -m "Relasing new version build:${TRAVIS_BUILD_NUMBER} job:${TRAVIS_JOB_ID} [skip ci]"
-  - git push -u origin master
+  # - git commit -m "Relasing new version build:${TRAVIS_BUILD_NUMBER} job:${TRAVIS_JOB_ID} [skip ci]"
+  # - git push -u origin master
   - thor version:bump patch
   - rm -f .git/credentials
